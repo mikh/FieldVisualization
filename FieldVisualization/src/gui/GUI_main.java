@@ -30,6 +30,23 @@ public class GUI_main {
 		main_frame.setVisible(true);
 	}
 	
+	public void display_2D_array(int[][] data){
+		int x = data.length, y = data[0].length;
+		Color[][] color = Conversion.convert_2D_int_to_color(data);
+		main_frame.getContentPane().removeAll();
+		tiles = new Tile[x][y];
+		main_frame.setLayout(new GridLayout(x, y));
+		for(int ii = 0; ii < x; ii++){
+			for(int jj = 0; jj < y; jj++){
+				Tile t = new Tile(ii*x+jj, new Dimension(Defines.JFRAME_INITIAL_SIZE.width/x, Defines.JFRAME_INITIAL_SIZE.height/y), color[ii][jj], new Point(ii, jj), this);
+				main_frame.add(t, ii, jj);
+				tiles[ii][jj] = t;
+			}
+		}
+		main_frame.repaint();
+		main_frame.revalidate();
+	}
+	
 	private void populate_main_frame(int n_rows, int n_cols, Dimension size, Color color){
 		for (int ii = 0; ii < n_rows; ii++){
 			for(int jj = 0; jj < n_cols; jj++){

@@ -26,9 +26,10 @@ public class Tile extends JPanel implements MouseListener{
 		this.setBounds(0,0,size.width, size.height);
 		this.color = initial_color;
 		this.setBackground(color);
-		this.addMouseListener(this);
+		//this.addMouseListener(this);
 		this.location = location;
 		this.parent_frame = parent_frame;
+
 	}
 	
 	
@@ -74,7 +75,7 @@ public class Tile extends JPanel implements MouseListener{
 		this.setBackground(Color.WHITE);
 		this.repaint();
 		this.revalidate();
-		/this.parent_frame.echo_mouse_absense(this.location);
+		this.parent_frame.echo_mouse_absense(this.location);
 	}
 
 	@Override
